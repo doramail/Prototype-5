@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3341441845901508818}
   - component: {fileID: 2730221710693083784}
   - component: {fileID: 6962171147363636820}
-  - component: {fileID: -7092522717577659362}
   m_Layer: 0
   m_Name: Good_Question_01
   m_TagString: Untagged
@@ -128,15 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce83b90c19d70b4ea2ab2891165f2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7092522717577659362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2912264916580385375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bd5e35a14d019b47ac2cffdef0f1e53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  pointValue: 5
+  _leftMouseClick: 0

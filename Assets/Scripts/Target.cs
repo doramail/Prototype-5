@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Target : MonoBehaviour
+public class Target : MonoBehaviour, IPointerClickHandler
 {
+    private GameManager _GameManagerScript;
+    public int pointValue;
+
     private Rigidbody targetRb;
     private float minSpeed = 12;
     private float maxSpeed = 16;
@@ -12,12 +15,18 @@ public class Target : MonoBehaviour
     private float xRange = 4;
     private float ySpawnPos = -2;
 
-
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        Destroy(gameObject);
+        //print($"New InputSystem on left mouse click called on {this.name}!");
+        _GameManagerScript.UpdateScore(pointValue);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
+        _GameManagerScript = GameObject.Find("Game Manager").GetComponent<GameManager>();
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawnPosition();

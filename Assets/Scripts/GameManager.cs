@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.EventSystems;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour /*, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler */
 {
+    private Target _TargetScript;
+
     public List<GameObject> targets;
     public TextMeshProUGUI scoreText;
 
-    private int score;
+    private int score = 0;
     private float spawnRate = 1.0f; // 1 second
 
     IEnumerator SpawnTarget()
@@ -32,13 +35,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnTarget());
-        score = 0;
-        //print($"Score = {scoreText.text}");
-        UpdateScore(5);
-    }
-
-    public void MouseClickedOnTarget()
-    {
+        UpdateScore(score);
     }
 
     // Update is called once per frame
@@ -46,4 +43,30 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+    //void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    //{
+    //    Destroy(gameObject);
+    //}
+
+    //void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+    //{
+    //    // throw new System.NotImplementedException();
+    //    //print($"New InputSystem on mouse down called on {this.name}!");
+
+    //}
+
+    //void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    //{
+    //    //throw new System.NotImplementedException();
+    //    // print($"New InputSystem on mouse Exit called on {this.name}!");
+
+    //}
+
+    //void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    //{
+    //    //throw new System.NotImplementedException();
+    //    // print($"New InputSystem on mouse Enter called on {this.name}!");
+
+    //}
 }
