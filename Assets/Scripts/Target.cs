@@ -7,6 +7,7 @@ public class Target : MonoBehaviour, IPointerClickHandler
 {
     private GameManager _GameManagerScript;
     public int pointValue;
+    public ParticleSystem explosionParticle;
 
     private Rigidbody targetRb;
     private float minSpeed = 12;
@@ -17,9 +18,13 @@ public class Target : MonoBehaviour, IPointerClickHandler
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
+        if (_GameManagerScript.gameIsActive)
+        {
         Destroy(gameObject);
         //print($"New InputSystem on left mouse click called on {this.name}!");
         _GameManagerScript.UpdateScore(pointValue);
+        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        }
     }
 
     // Start is called before the first frame update
@@ -55,6 +60,10 @@ public class Target : MonoBehaviour, IPointerClickHandler
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        if (!gameObject.CompareTag("Bad"))
+        {
+            _GameManagerScript.GameOver();
+        }
     }
 
     // Update is called once per frame
