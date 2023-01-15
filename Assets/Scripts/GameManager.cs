@@ -9,13 +9,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour /*, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler */
 {
+    public GameObject titleScreen;
     public Button restartButton;
     public List<GameObject> targets;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
     public bool gameIsActive;
 
-    private Target _TargetScript;
     private int score = 0;
     private float spawnRate = 1.0f; // 1 second
 
@@ -50,15 +50,21 @@ public class GameManager : MonoBehaviour /*, IPointerEnterHandler, IPointerExitH
     // Start is called before the first frame update
     void Start()
     {
-        gameIsActive = true;
-        UpdateScore(score);
-        StartCoroutine(SpawnTarget());
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void StartGame(int difficulty)
+    {
+        gameIsActive = true;
+        UpdateScore(score);
+        spawnRate /= difficulty; // equivalent to (spawnRate = spawnRate / difficulty);
+        StartCoroutine(SpawnTarget());
+        titleScreen.gameObject.SetActive(false);
     }
 
     //void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
