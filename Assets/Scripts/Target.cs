@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Target : MonoBehaviour, IPointerClickHandler
+public class Target : MonoBehaviour
 {
     private GameManager _GameManagerScript;
     public int pointValue;
     public ParticleSystem explosionParticle;
+    public AudioClip targetHitSound;
 
     private Rigidbody targetRb;
     private float minSpeed = 12;
@@ -16,22 +17,23 @@ public class Target : MonoBehaviour, IPointerClickHandler
     private float xRange = 4;
     private float ySpawnPos = -2;
 
-    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    public void MouseInterScript()
     {
         if (_GameManagerScript.gameIsActive)
         {
-        Destroy(gameObject);
-        //print($"New InputSystem on left mouse click called on {this.name}!");
-        _GameManagerScript.UpdateScore(pointValue);
-        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            _GameManagerScript.playerAudio.PlayOneShot(targetHitSound, 1.0f);
+            Destroy(gameObject);
+            // print($"New InputSystem on left mouse click called on {this.name}!");
+            _GameManagerScript.UpdateScore(pointValue);
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        targetRb = GetComponent<Rigidbody>();
         _GameManagerScript = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        targetRb = GetComponent<Rigidbody>();
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawnPosition();

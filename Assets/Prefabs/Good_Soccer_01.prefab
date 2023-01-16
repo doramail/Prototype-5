@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5671141896360878160}
   - component: {fileID: 1623096361908133946}
   - component: {fileID: 8515658986301665871}
+  - component: {fileID: -9093757294737065437}
   m_Layer: 0
   m_Name: Good_Soccer_01
   m_TagString: Untagged
@@ -129,3 +130,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 10
   explosionParticle: {fileID: 6601538019107920666, guid: 70a1428e5f80a4866a779ef1ab9fe521, type: 3}
+  targetHitSound: {fileID: 8300000, guid: 03c9c9aa27f20d04fb301eaceaf2d43f, type: 3}
+--- !u!114 &-9093757294737065437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149411621193538276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7beb952a09781794c96a164d31579dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetScript: {fileID: 8515658986301665871}

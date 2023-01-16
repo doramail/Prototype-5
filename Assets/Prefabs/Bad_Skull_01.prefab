@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2687824769102782083}
   - component: {fileID: 5957389656637266874}
   - component: {fileID: 963919705557351156}
+  - component: {fileID: 9008583370511054397}
   m_Layer: 0
   m_Name: Bad_Skull_01
   m_TagString: Bad
@@ -129,3 +130,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: -10
   explosionParticle: {fileID: 625621707174889904, guid: ef43e5aef41c142fb85a7658a397dc75, type: 3}
+  targetHitSound: {fileID: 8300000, guid: 03c9c9aa27f20d04fb301eaceaf2d43f, type: 3}
+--- !u!114 &9008583370511054397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5076685007899864370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7beb952a09781794c96a164d31579dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetScript: {fileID: 963919705557351156}

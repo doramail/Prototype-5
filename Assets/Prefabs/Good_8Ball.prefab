@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8213411066175889834}
   - component: {fileID: 4850548566932257253}
   - component: {fileID: 5169318909967713541}
+  - component: {fileID: 3123220045684424327}
   m_Layer: 0
   m_Name: Good_8Ball
   m_TagString: Untagged
@@ -129,3 +130,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 15
   explosionParticle: {fileID: 7303472089845130122, guid: 6cbc21f5e9162483993a2b84b14d5ac8, type: 3}
+  targetHitSound: {fileID: 8300000, guid: 03c9c9aa27f20d04fb301eaceaf2d43f, type: 3}
+--- !u!114 &3123220045684424327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445683261430753905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7beb952a09781794c96a164d31579dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetScript: {fileID: 5169318909967713541}

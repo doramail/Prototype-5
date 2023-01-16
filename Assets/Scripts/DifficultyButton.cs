@@ -25,7 +25,7 @@ public class DifficultyButton : MonoBehaviour
     }
     void SetDifficulty()
     {
-        Debug.Log(gameObject.name + " was clicked");
+        // Debug.Log(gameObject.name + " was clicked");
         _gameManagerScript.StartGame(difficulty);
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour /*, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler */
+public class GameManager : MonoBehaviour
 {
     public GameObject titleScreen;
     public Button restartButton;
@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour /*, IPointerEnterHandler, IPointerExitH
     public TextMeshProUGUI gameOverText;
     public bool gameIsActive;
 
+    public AudioSource playerAudio;
     private int score = 0;
     private float spawnRate = 1.0f; // 1 second
 
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour /*, IPointerEnterHandler, IPointerExitH
     // Start is called before the first frame update
     void Start()
     {
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -66,30 +68,4 @@ public class GameManager : MonoBehaviour /*, IPointerEnterHandler, IPointerExitH
         StartCoroutine(SpawnTarget());
         titleScreen.gameObject.SetActive(false);
     }
-
-    //void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
-    //{
-    //    Destroy(gameObject);
-    //}
-
-    //void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
-    //{
-    //    // throw new System.NotImplementedException();
-    //    //print($"New InputSystem on mouse down called on {this.name}!");
-
-    //}
-
-    //void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
-    //{
-    //    //throw new System.NotImplementedException();
-    //    // print($"New InputSystem on mouse Exit called on {this.name}!");
-
-    //}
-
-    //void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
-    //{
-    //    //throw new System.NotImplementedException();
-    //    // print($"New InputSystem on mouse Enter called on {this.name}!");
-
-    //}
 }
